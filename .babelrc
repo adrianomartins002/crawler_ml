@@ -4,5 +4,12 @@
   ],
   "plugins": [
     "@babel/proposal-class-properties"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "@babel/plugin-transform-runtime"
+      ]
+    }
+  }
 }
