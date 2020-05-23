@@ -6,10 +6,10 @@ Essas instruções fornecerão uma cópia do projeto em execução na sua máqui
 
 ## **Pré-requisitos:**
 Para execução e desenvolvimento do projeto é necessário, ou que tenha instalado:
-- nodejs
+- [nodejs](https://nodejs.org/en/)
 - yarn ou npm
 Para somente execução do projeto:
-- Docker
+- [Docker](https://www.docker.com/)
 Executar o comando `docker build -t crawler-ml .` na pasta do projeto, e quando 
 terminar de gerar a imagem executar o comando `docker run -p 3333:3333 crawler-ml`
 deixando a aplicação disponível em localhost:3333
@@ -19,13 +19,13 @@ deixando a aplicação disponível em localhost:3333
  - NodeJs
 
 ## **Libs utilizadas**
- - Express - para roteamente e padrão rest
- - Puppeteer - lib utilizada para crawler e navegação no mercado livre
- - Jest - Lib de testes 
- - Babel - compilador para tradução da tipagem em ambiente de produção
- - Sucrase - compilador para tipagem utilizada do es6 em ambiente de desenvolvimento
- - Nodemon - para desenvolvimento e automatização do restart do servidor ao sofrer alterações
- - Yup - utilizado para as validações dos parametros passados 
+ - [Express](https://expressjs.com/pt-br/) - para roteamente e padrão rest
+ - [Puppeteer](https://github.com/puppeteer/puppeteer) - lib utilizada para crawler e navegação no mercado livre
+ - [Jest](https://jestjs.io/) - Lib de testes.
+ - [Babel](https://babeljs.io/) - O Babel é um conjunto de ferramentas usado principalmente para converter o código ECMAScript 2015+ em uma versão compatível com versões anteriores do JavaScript em navegadores ou ambientes atuais e mais antigos.
+ - [Sucrase](https://github.com/alangpierce/sucrase) - Sucrase é uma alternativa ao Babel que permite construções de desenvolvimento super-rápidas. Em vez de compilar uma grande variedade de recursos de JS para poder trabalhar no Internet Explorer, o Sucrase assume que você está desenvolvendo com um navegador recente ou com o Node.js.
+ - [Nodemon](https://github.com/remy/nodemon) - para desenvolvimento e automatização do restart do servidor ao sofrer alterações
+ - [Yup](https://github.com/jquense/yup) - Yup é um construtor de esquema JavaScript para análise e validação de valor. Defina um esquema, transforme um valor para corresponder, valide a forma de um valor existente ou ambos.
 
 ## **Execução pro projeto**
  - Para executar o aplicativo pela avd do android sdk basta baixar os pacotes do package.json 
