@@ -50,7 +50,7 @@ deixando a aplicação disponível em localhost:3333
 ## **Exemplo de utilização**
 - Request:
     ```
-    post - localhost:3333/index
+    post - localhost:3333/product/index
 
     json body:
     {
