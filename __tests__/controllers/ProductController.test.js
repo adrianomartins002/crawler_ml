@@ -1,5 +1,5 @@
 import ProductController from "../../src/app/controllers/ProductController"
-import { mockRequest, mockResponse } from '../utils/interceptors';
+import { mockRequest, mockResponse } from '../../src/app/utils/interceptors';
 
 describe('ProductController', () => {
   beforeEach(() => {
