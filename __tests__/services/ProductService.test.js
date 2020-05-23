@@ -1,6 +1,6 @@
 import ProductService from '../../src/app/services/ProductService'
 
-describe('ProductSearchService', () => {
+describe('ProductService', () => {
   beforeEach(() => {
     jest.setTimeout(10000);
   });
@@ -14,7 +14,7 @@ describe('ProductSearchService', () => {
     })
     it('when pass data invalid', async () => {
       expect(ProductService.returnProducts('', 0)).rejects.
-        toEqual(new Error('Invalid parameters!'))
+        toEqual(new Error)
     })
   })
 })
