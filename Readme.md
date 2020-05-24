@@ -48,7 +48,8 @@ deixando a aplicação disponível em localhost:3333.
     app.js
     server.js
 
-
+## Testes
+ - Foi adicionado um script no package.json para execução dos testes com jest. Basta executar o comando ```yarn test```
 
 ## **Exemplo de utilização**
 - Request:
