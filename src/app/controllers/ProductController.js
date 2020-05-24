@@ -1,5 +1,5 @@
 import ProductService from '../services/ProductService';
-import Logger from '../../Logger';
+import httpStatus from '../utils/status-code';
 import * as Yup from 'yup';
 
 /**
@@ -11,7 +11,8 @@ class ProductController {
    * Função de retorno de dados de produto
    */
   async index(req, res) {
-    const logger = new Logger('product/index')
+    const logger = req.logger;
+    logger.setRoute('/product/index')
     let error = {}
 
     const schema = Yup.object().shape({
@@ -24,7 +25,7 @@ class ProductController {
       if (!(await schema.isValid(req.body))) {
         logger.error('Parametros inválidos');
         error['params'] = 'invalid parameters';
-        return res.status(400).json({
+        return res.status(httpStatus.BAD_REQUEST).json({
           error: 'Validation fails',
           message: 'Verifique se os parametros necessários estão corretos.'
         })
@@ -36,14 +37,14 @@ class ProductController {
 
       if (!productList || productList.length <= 0) {
         logger.error('Sem resultados para a busca com os seguintes filtros: search - ' + search + ' , int - ' + int);
-
+        return res.status(httpStatus.NOT_FOUND).json({ message: 'Não foram encontrados resultados para essa pesquisa' })
       }
 
-      return res.status(200).json(productList)
+      return res.status(httpStatus.SUCESS).json(productList)
 
     } catch (err) {
       logger.error('Houve um problema! - ' + err.message);
-      return res.status(500).json({ message: err.message })
+      return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: err.message })
     }
   }
 }

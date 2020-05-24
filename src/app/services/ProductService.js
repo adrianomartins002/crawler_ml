@@ -10,10 +10,10 @@ class ProductSearchService {
    */
   returnProducts = async (search, int) => {
 
-    if (!search || search == '' || !int || int <= 0) {
-      throw new Error();
-    }
+    if (!search || search == '' || !int || int <= 0)
+      throw new Error('Não é possível prosseguir com a busca de produtos. Parametros inválidos!');
 
+    let productList = []
     // instancia a página
     const browser = await puppeteer.launch({
       headless: true,
@@ -27,8 +27,21 @@ class ProductSearchService {
     await page.type('.nav-search-input', search, { delay: 100 });
     await page.click('button[type="submit"]');
     await page.waitFor('.nav-search-input')
+    const viewOpptionsButtons = await page.$('.view-options-buttons');
 
-    let productList = []
+    // verificar o tipo de layout para buscar por grid
+    if (!viewOpptionsButtons)
+      return productList
+
+    const buttonsLayoutType = await viewOpptionsButtons.$$('li');
+    for (let button of buttonsLayoutType) {
+      if (await button.$('a') && (await (await (await button.$('a'))
+        .getProperty('title')).jsonValue() === 'Grilla'))
+        await (await button.$('a')).click();
+    }
+    // aguardar a página carregar 
+    await page.waitFor('.andes-pagination__button--next')
+
     // itera sobre os itens, enquanto o botão de próximo existir
     while (await page.$('.andes-pagination__button--next')) {
       await page.waitFor('.results-item');
@@ -58,9 +71,15 @@ class ProductSearchService {
           priceFractionPromise, priceDecimalsPromise
         ])
 
-        let price = Number(priceFraction + (priceDecimal ? '.' + priceDecimal : ''));
+        const price = Number(priceFraction + (priceDecimal ? '.' + priceDecimal : ''));
 
-        let product = { name, link, price, store, state };
+        let product = {
+          name: name ?? undefined,
+          link: link ?? undefined,
+          price: price ?? undefined,
+          store: store ?? undefined,
+          state: state ?? undefined
+        };
         // montando a lista de produtos
         productList.push(product)
         // finalizando o laço caso atinja o limite de produtos a buscar
@@ -86,6 +105,10 @@ class ProductSearchService {
    * @param property propriedade de uma tag ou componente html
    */
   getTextValueOfProperty = async (item, containerProperty, property) => {
+    if (!item || !containerProperty || !property)
+      throw new Error(`Um dos itens mapeados na página é inválido. 
+      item:${item} - container: ${containerProperty} - property:${property}`)
+
     let prop = await item.$(containerProperty);
     if (prop)
       prop = await (await prop.getProperty(property)).jsonValue()

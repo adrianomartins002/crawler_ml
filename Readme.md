@@ -28,8 +28,11 @@ deixando a aplicação disponível em localhost:3333
  - Yup - utilizado para as validações dos parametros passados 
 
 ## **Execução pro projeto**
- - Para executar o aplicativo pela avd do android sdk basta baixar os pacotes do package.json 
- utilizando o comando ``` yarn ou npm install ``` e logo após o download terminar, utilizar o comando ``` react-native run-android ```.
+ - Para executar o projeto na própria máquina utilizando o yarn ou npm, basta rodar os seguintes comandos:
+ ```yarn``` e logo após executar o comando ```yarn start```.
+ - Para executar via docker utilizar os seguintes comandos `docker build -t crawler-ml .` na pasta do projeto, e quando 
+terminar de gerar a imagem executar o comando `docker run -p 3333:3333 crawler-ml`
+deixando a aplicação disponível em localhost:3333.
 
 
 
