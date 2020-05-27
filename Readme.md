@@ -1,5 +1,5 @@
 # Projeto Crawler - Mercado Livre
-Projeto para criação de uma api rest que consuma de um crawler fazendo buscas no mercado livre.
+Projeto para criação de uma api rest que consuma de um crawler que fará buscas de produtos no mercado livre de acordo com os parametros passados no body da requisição.
 
 ## **Iniciando**
 Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. 
