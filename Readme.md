@@ -1,5 +1,5 @@
 # Projeto Crawler - Mercado Livre
-Projeto para criação de uma api rest que consuma de um crawler fazendo buscas no mercado livre.
+Projeto para criação de uma api rest que consuma de um crawler que fará buscas de produtos no mercado livre de acordo com os parametros passados no body da requisição.
 
 ## **Iniciando**
 Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. 
@@ -81,9 +81,7 @@ deixando a aplicação disponível em localhost:3333.
             {
               "name": " Cadeado Segurança Aço Reforçado Com Alarme Sonoro Casa Moto ",
               "link": "https://produto.mercadolivre.com.br/MLB-1493231801-cadeado-seguranca-aco-reforcado-com-alarme-sonoro-casa-moto-_JM?searchVariation=53702445106#searchVariation=53702445106&position=3&       type=item&tracking_id=90b14f66-0d89-4fc0-bffa-b4111ced7afe",
-              "price": "41,99",
-              "store": {},
-              "state": " "
+              "price": "41,99"
             }
         ]
 
