@@ -74,11 +74,11 @@ class ProductSearchService {
         const price = Number(priceFraction + (priceDecimal ? '.' + priceDecimal : ''));
 
         let product = {
-          name: name ?? undefined,
-          link: link ?? undefined,
-          price: price ?? undefined,
-          store: store ?? undefined,
-          state: state ?? undefined
+          name: name ?? null,
+          link: link ?? null,
+          price: price ?? null,
+          store: store ?? null,
+          state: state ?? null
         };
         // montando a lista de produtos
         productList.push(product)
