@@ -13,7 +13,7 @@
     "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "babel-jest": "^26.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jest": "^26.0.1",
     "puppeteer": "^3.1.0",
     "winston": "^3.2.1",
